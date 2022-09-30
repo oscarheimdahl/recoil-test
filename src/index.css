@@ -1,13 +1,121 @@
+@import url('https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap');
+
+:root {
+  --shadow-color: rgba(30, 30, 30, 0.8);
+  --shadow: var(--shadow-color) 5px 5px 0px;
+}
+
+html,
+body,
+#root {
+  height: 100%;
+}
+
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans',
+    'Droid Sans', 'Helvetica Neue', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background-color: #888;
 }
 
 code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New', monospace;
+}
+
+.page {
+  height: 100%;
+  width: 100%;
+
+  display: grid;
+  place-content: center;
+
+  opacity: 0;
+  animation-name: fadein;
+  animation-duration: 1s;
+  animation-iteration-count: 1;
+  animation-delay: 1s;
+  animation-fill-mode: forwards;
+}
+
+@keyframes fadein {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.inputs {
+  display: flex;
+  gap: 1rem;
+}
+
+h1 {
+  font-weight: 100;
+  font-family: Great Vibes;
+  top: calc(20vh - 75px);
+  transform: rotate(-2deg);
+  width: 100%;
+  color: white;
+  opacity: 0.8;
+  margin: 0;
+  margin-bottom: 5rem;
+  text-align: center;
+  font-size: 10rem;
+  position: absolute;
+  text-shadow: var(--shadow);
+}
+
+input {
+  width: 33.33%;
+  border: none;
+  outline: none;
+  -webkit-appearance: none;
+  appearance: none;
+  padding: 0.5rem 1rem;
+  font-size: 2rem;
+  box-shadow: var(--shadow);
+}
+
+.modal {
+  background-color: white;
+  width: 500px;
+  padding: 2rem;
+  display: grid;
+  box-shadow: var(--shadow);
+  position: relative;
+  background-color: transparent;
+}
+
+.button-row {
+  border-radius: 5px;
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+button {
+  font-size: 1.5rem;
+  padding: 0.8rem 1rem;
+  background-color: white;
+  border: none;
+  box-shadow: var(--shadow);
+  transition: box-shadow 200ms, transform 200ms;
+  outline: none;
+}
+
+button:hover,
+button:focus {
+  box-shadow: var(--shadow-color) 3px 3px 0px;
+  transform: translateY(2px);
+  cursor: pointer;
+}
+
+button:active {
+  box-shadow: var(--shadow-color) 0px 0px 0px;
+  transform: translateY(4px);
 }
