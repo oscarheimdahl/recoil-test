@@ -1,10 +1,11 @@
-import { useRecoilState } from 'recoil';
-import { colorMode } from '../store/recoil';
+import { useRecoilState, useRecoilValue } from 'recoil';
+import { colorMode, backgroundColorStyle } from '../store/recoil';
 
 interface ShowerProps {}
 
 const Buttons = ({}: ShowerProps) => {
   const [mode, setMode] = useRecoilState(colorMode);
+  const style = useRecoilValue(backgroundColorStyle);
 
   const changeMode = () => {
     if (mode === 'HSL') setMode('RGB');
@@ -13,7 +14,7 @@ const Buttons = ({}: ShowerProps) => {
 
   return (
     <div className='button-row'>
-      <button onClick={changeMode}>{mode}</button>
+      <button onClick={changeMode}>{style.background}</button>
     </div>
   );
 };

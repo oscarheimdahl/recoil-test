@@ -41,7 +41,7 @@ const toRGB = (c1: number, c2: number, c3: number) => {
 };
 
 const toHSL = (c1: number, c2: number, c3: number) => {
-  const toPercent = (n: number) => ((n / 255) * 100).toFixed(2);
+  const toPercent = (n: number) => Math.floor((n / 255) * 100);
   const h = c1;
   const s = toPercent(c2);
   const l = toPercent(c3);
